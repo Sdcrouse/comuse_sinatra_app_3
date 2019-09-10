@@ -21,11 +21,11 @@
 
 - [x] 5. Generate new project using corneal gem
 - [x] 6. Create github repo
-- [ ] 7. Build your models
+- [x] 7. Build your models
       - Migrations
       - Model classes
       - Associations
-- [ ] 8. Test your models and associations in the console
+- [x] 8. Test your models and associations in the console
       - Create some seed data
       - Adjust migrations as needed
 
