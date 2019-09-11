@@ -1,5 +1,8 @@
 # here is where I will create some initial data to test associations and app functionality
 
+User.destroy_all
+Post.destroy_all
+
 ayana = User.create(name: "Ayana", email: "ayana@ayana.com", image_url: "https://avatars1.githubusercontent.com/u/892860?s=460&v=4", bio: "i love art", password: "pw")
 
 jenn = User.create(name: "Jennifer", email: "jennifer@jennifer.com", image_url: "https://avatars0.githubusercontent.com/u/10600568?s=460&v=4", bio: "i love art", password: "pw")
