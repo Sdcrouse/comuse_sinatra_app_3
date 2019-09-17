@@ -80,7 +80,7 @@ The application we build in the project build is an "Artist Portfolio App". **Us
   - Create a view for displaying all posts
   - Create show route
 
-- [ ] 17. Implement CREATE functionality
+- [x] 17. Implement CREATE functionality
   - Create `get` posts route and view to render form
   - Create `post` route to create new post
 
