@@ -4,7 +4,15 @@ class PostsController < ApplicationController
 
   # READ
   get "/posts" do
-    "all posts"
+    @posts = Post.all
+    erb :"posts/index"
+  end
+
+  get "/posts/:id" do 
+    # this is a dynamic route
+    @post = Post.find(params[:id])
+    # render the show page
+    erb :"posts/show"
   end
 
   # CREATE

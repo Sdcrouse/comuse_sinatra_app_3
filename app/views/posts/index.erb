@@ -1,0 +1,8 @@
+<h1>All Posts</h1>
+<% @posts.each do |post| %>
+  <h4><a href="/posts/<%= post.id %>"><%= post.title %></a></h4>
+  <img src="<%= post.image_url %>" alt="<%= post.title %> photo" height="200" width="200"><br><br>
+  <strong><%= post.created_at %></strong>
+  <p><%= post.description %></p>
+  <p>BY: <%= post.user.name %></p>
+<% end %>
