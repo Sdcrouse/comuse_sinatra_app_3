@@ -6,5 +6,6 @@ end
 
 # here is where i will mount my CONTROLLERS
 use UsersController
+use PostsController
 
 run ApplicationController

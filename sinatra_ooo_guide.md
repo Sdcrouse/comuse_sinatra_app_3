@@ -56,18 +56,18 @@ The application we build in the project build is an "Artist Portfolio App". **Us
       - **Tip**: Here is where we authenticate the user and leverage the session hash to log them in!
   - Build your `get users/:id` route + "show" view
 
-- [ ] 12. Create your `ApplicationController` helper methods
+- [x] 12. Create your `ApplicationController` helper methods
   - **Ask**: Why do we add this?
   - `#logged_in?`: checks if the user is logged in
   - `#current_user`: keeps track of the user currently logged in
 
 **MOVE ON TO SIGN UP**
-- [ ] 13. Build routes and views for signup
+- [x] 13. Build routes and views for signup
   - Build your `get` signup route + "signup" view
   - Build your `post` signup route
 
 **WRAP UP WITH LOG OUT**
-- [ ] 14. Build your `get` logout route
+- [x] 14. Build your `get` logout route
 
 ### PART 3 — CRUD: Create, Read, Update, Delete
 

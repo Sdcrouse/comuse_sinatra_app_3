@@ -28,7 +28,29 @@ class UsersController < ApplicationController
   # users SHOW route
   get "/users/:id" do
     # find the user and save to instance
+    @user = User.find_by(id: params[:id])
     # render with access to user instance variable
+    erb:"/users/show"
+  end
+
+  #render sign up form
+  get '/signup' do
+    #render my sign form
+    erb :"users/signup"
+  end
+
+  #create new user using sign up form
+  post '/users' do
+    @user = User.create(params)
+    # logs the user in
+    session[:user_id] = @user.id
+    redirect "/users/#{@user.id}"
+  end
+
+  #logs out user by clearing session hash
+  get '/logout' do
+    session.clear
+    redirect '/'
   end
 
 end
