@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   post "/posts" do
     # recieves the params from the form
     # using the params i will create the post
-    # IMPORTANT NOTE: we want validations 
+    # IMPORTANT NOTE: we want validations
     @post = Post.create(title: params[:title], image_url: params[:image_url], description: params[:description], user_id: current_user.id)
     redirect "/posts/#{@post.id}"
   end
@@ -31,7 +31,35 @@ class PostsController < ApplicationController
   end
 
   # UPDATE
+    # implement Sinatra middleware 'MethodOverride' to intercept every request sent and override to perscribed method using a hidden input in our forms
+      # for PATCH and DELETE
+    # get route to "/posts/:id/edit" to render edit form
+      # we need to add a hidden input to point to our patch route
+    #patch route to "/posts/:id" to do .update on a post instance
+
+    get '/posts/:id/edit' do
+      @post = Post.find(params[:id])
+      erb :'/posts/edit'
+    end
+
+    # patch route to update a existing post
+    patch '/posts/:id' do
+      @post = Post.find(params[:id])
+      @post.update(title: params[:title], image_url: params[:image_url], description: params[:description])
+      redirect "/posts/#{@post.id}"
+    end
 
   # DELETE
+    # render delete form on show page
+      # we need to add a hidden input to point to our delete route
+    # delete route to .destroy a post instance
+
+      delete '/posts/:id' do
+        # we need the id to FIND the post to delete
+        @post = Post.find(params[:id])
+        @post.destroy
+        redirect '/posts'
+      end
+
 
 end
