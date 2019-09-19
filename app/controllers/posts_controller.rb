@@ -18,8 +18,15 @@ class PostsController < ApplicationController
     # recieves the params from the form
     # using the params i will create the post
     # IMPORTANT NOTE: we want validations
-    @post = Post.create(title: params[:title], image_url: params[:image_url], description: params[:description], user_id: current_user.id)
-    redirect "/posts/#{@post.id}"
+    @post = Post.new(title: params[:title], image_url: params[:image_url], description: params[:description], user_id: current_user.id)
+    if @post.save
+      flash[:message] = "Post succesfully created!"
+      redirect "/posts/#{@post.id}"
+    else
+      #show post creation fail error messages
+      flash[:error] = "Post creation failure: #{@post.errors.full_messages.to_sentence}"
+      redirect "/posts/new"
+    end
   end
 
   # READ - SHOW
