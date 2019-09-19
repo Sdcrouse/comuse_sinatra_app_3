@@ -10,8 +10,14 @@ class PostsController < ApplicationController
 
   # CREATE
   get "/posts/new" do
-    # render form to create post
-    erb :"/posts/new"
+    if logged_in?
+      # render form to create post
+      erb :"/posts/new"
+    else
+      # redirects my user if they're not logged in
+      flash[:error] = "You must be logged in to create a post!"
+      redirect '/'
+    end
   end
 
   post "/posts" do
@@ -46,7 +52,12 @@ class PostsController < ApplicationController
 
     get '/posts/:id/edit' do
       @post = Post.find(params[:id])
-      erb :'/posts/edit'
+      if authorized_to_edit?(@post)
+        erb :'/posts/edit'
+      else
+        flash[:error] = "You must be authorized to edit that post."
+        redirect '/posts'
+      end
     end
 
     # patch route to update a existing post

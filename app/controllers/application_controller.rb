@@ -33,6 +33,11 @@ class ApplicationController < Sinatra::Base
       #will return a boolean (true or false)
       !!current_user
     end
+
+    def authorized_to_edit?(post)
+      post.user == current_user
+    end
+
   end
 
 end

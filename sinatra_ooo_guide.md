@@ -98,7 +98,7 @@ The application we build in the project build is an "Artist Portfolio App". **Us
 - [x] 20. Implement `sinatra-flash` gem to display validation failures and improve user experience (UX)
   - Review the [docs](https://github.com/SFEley/sinatra-flash)
   - **Tip**: a `flash[:message]` has the lifecyle of one `GET` request and will not show up when rendering an `erb` file.
-- [ ] 21. Include ActiveRecord validations in your `User` and `Post` model that checks for user inputs
+- [x] 21. Include ActiveRecord validations in your `User` and `Post` model that checks for user inputs
   - **Ex**: Making sure all form fields are filled out or that a user is using a unique email or username
   - Review the [docs](https://guides.rubyonrails.org/active_record_validations.html)
   - **Tip**: `has_secure_password` has a built in validation for the `password_digest` attribute!
